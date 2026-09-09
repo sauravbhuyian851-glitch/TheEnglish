@@ -5,13 +5,71 @@
 document.addEventListener('DOMContentLoaded', () => {
   initCalculator();
   initQuiz();
-  initFilters();
-  initFaq();
-  initMobileNav();
+  initSidebarNav();
+  initModuleSelector();
 });
 
 /* --------------------------------------------------------------------------
-   1. IELTS OFFICIAL BAND CALCULATOR
+   1. MODULE SELECTOR ON FLOATING GLASS CARD
+   -------------------------------------------------------------------------- */
+const moduleData = {
+  'Listening': {
+    title: 'Listening Band 8.0+',
+    subtitle: '40 Audio Practice Tests & Native Accent Identification Drills'
+  },
+  'Reading': {
+    title: 'Reading Band 7.5+',
+    subtitle: 'Skimming, Scanning & Time-Management Strategies'
+  },
+  'Writing': {
+    title: 'Writing Task 1 & 2',
+    subtitle: 'Essay Structure Templates & Band 8.0 Vocabulary'
+  },
+  'Speaking': {
+    title: '1-on-1 Speaking Practice',
+    subtitle: 'Live Mock Interviews with Certified Cambridge Trainers'
+  }
+};
+
+function selectModule(moduleName) {
+  const titleDisplay = document.getElementById('moduleTitleDisplay');
+  const subtitleDisplay = document.getElementById('moduleSubtitleDisplay');
+  const buttons = document.querySelectorAll('.glass-icon-btn');
+
+  if (moduleData[moduleName]) {
+    titleDisplay.textContent = moduleData[moduleName].title;
+    subtitleDisplay.textContent = moduleData[moduleName].subtitle;
+  }
+
+  buttons.forEach(btn => {
+    if (btn.getAttribute('title') && btn.getAttribute('title').includes(moduleName)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function initModuleSelector() {
+  window.selectModule = selectModule;
+}
+
+/* --------------------------------------------------------------------------
+   2. SIDEBAR ACTIVE NAV ITEM SWITCHER
+   -------------------------------------------------------------------------- */
+function initSidebarNav() {
+  const navItems = document.querySelectorAll('.sidebar-nav-item');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   3. OFFICIAL IELTS BAND CALCULATOR
    -------------------------------------------------------------------------- */
 function initCalculator() {
   const rangeListening = document.getElementById('rangeListening');
@@ -36,17 +94,12 @@ function initCalculator() {
     const w = parseFloat(rangeWriting.value);
     const s = parseFloat(rangeSpeaking.value);
 
-    // Update individual labels
     valListening.textContent = l.toFixed(1);
     valReading.textContent = r.toFixed(1);
     valWriting.textContent = w.toFixed(1);
     valSpeaking.textContent = s.toFixed(1);
 
-    // Calculate arithmetic mean
     const avg = (l + r + w + s) / 4;
-
-    // Official IELTS Rounding Rules:
-    // e.g. 6.25 -> 6.5, 6.75 -> 7.0, 6.125 -> 6.0, 6.875 -> 7.0
     const whole = Math.floor(avg);
     const decimal = avg - whole;
     let roundedScore = whole;
@@ -59,10 +112,8 @@ function initCalculator() {
       roundedScore = whole + 1.0;
     }
 
-    // Display
     overallDisplay.textContent = roundedScore.toFixed(1);
 
-    // Interpretation & Advice
     let title = "Good User";
     let advice = "Eligible for top UK, Canadian, & Australian Master's programs.";
 
@@ -83,7 +134,7 @@ function initCalculator() {
       advice = "Meets minimum undergraduate requirements. Joining our 2-month batch will boost you to 7.5+!";
     } else {
       title = "Modest User (Band 6.0 & below)";
-      advice = "We recommend starting with our Grammar & Foundation batch before sitting your exam.";
+      advice = "We recommend starting with our Foundation batch before sitting your exam.";
     }
 
     interpretationDisplay.textContent = title;
@@ -94,12 +145,11 @@ function initCalculator() {
     input.addEventListener('input', calculateBand);
   });
 
-  // Initial call
   calculateBand();
 }
 
 /* --------------------------------------------------------------------------
-   2. DIAGNOSTIC ENGLISH PROFICIENCY QUIZ
+   4. DIAGNOSTIC ENGLISH QUIZ
    -------------------------------------------------------------------------- */
 const quizQuestions = [
   {
@@ -170,12 +220,12 @@ function renderQuizStep() {
     progressFill.style.width = `${((currentQuizStep + 1) / quizQuestions.length) * 100}%`;
 
     optionsContainer.innerHTML = '';
-    q.options.forEach((opt, idx) => {
+    q.options.forEach((opt) => {
       const btn = document.createElement('button');
       btn.className = 'quiz-option-btn';
       btn.innerHTML = `
         <span>${opt.label}</span>
-        <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+        <i class="fa-solid fa-arrow-right" style="color: var(--red-primary);"></i>
       `;
       btn.onclick = () => selectQuizOption(opt.points);
       optionsContainer.appendChild(btn);
@@ -194,7 +244,7 @@ function selectQuizOption(points) {
 function showQuizResults() {
   document.getElementById('quizQuestionBox').style.display = 'none';
   const resultCard = document.getElementById('quizResultCard');
-  resultCard.classList.add('active');
+  resultCard.style.display = 'block';
 
   const badge = document.getElementById('quizResultBadge');
   const courseTitle = document.getElementById('quizRecommendedCourse');
@@ -219,91 +269,12 @@ function resetQuiz() {
   currentQuizStep = 0;
   totalQuizPoints = 0;
   document.getElementById('quizQuestionBox').style.display = 'block';
-  document.getElementById('quizResultCard').classList.remove('active');
+  document.getElementById('quizResultCard').style.display = 'none';
   renderQuizStep();
 }
 
 /* --------------------------------------------------------------------------
-   3. COURSE CATEGORY FILTERS
-   -------------------------------------------------------------------------- */
-function initFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const courseCards = document.querySelectorAll('.course-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-filter');
-
-      courseCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'flex';
-          card.style.opacity = '1';
-        } else {
-          card.style.display = 'none';
-          card.style.opacity = '0';
-        }
-      });
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. FAQ ACCORDION TOGGLE
-   -------------------------------------------------------------------------- */
-function initFaq() {
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    questionBtn.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   5. MOBILE NAVIGATION MENU
-   -------------------------------------------------------------------------- */
-function initMobileNav() {
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const closeMobileNav = document.getElementById('closeMobileNav');
-  const mobileNav = document.getElementById('mobileNav');
-  const navOverlay = document.getElementById('navOverlay');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-
-  if (!mobileMenuBtn) return;
-
-  function openMenu() {
-    mobileNav.classList.add('open');
-    navOverlay.classList.add('visible');
-  }
-
-  function closeMenu() {
-    mobileNav.classList.remove('open');
-    navOverlay.classList.remove('visible');
-  }
-
-  mobileMenuBtn.addEventListener('click', openMenu);
-  closeMobileNav.addEventListener('click', closeMenu);
-  navOverlay.addEventListener('click', closeMenu);
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  window.closeMobileMenu = closeMenu;
-}
-
-/* --------------------------------------------------------------------------
-   6. BOOKING MODAL & FORM HANDLER
+   5. BOOKING MODAL HANDLERS
    -------------------------------------------------------------------------- */
 function openModal(topic = 'Free Mock Test') {
   const modal = document.getElementById('bookingModal');

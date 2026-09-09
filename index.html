@@ -3,491 +3,354 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The English Academy | IELTS & English Prep</title>
-  <meta name="description" content="Minimal, professional IELTS & English training institute. Reach Band 7.5+ with Cambridge certified trainers.">
+  <title>The English Academy & IELTS Prep | Target Band 7.5+</title>
+  <meta name="description" content="Reach Band 7.5+ with Cambridge certified master trainers. Expert British Council certified tutors, 1-on-1 speaking practice, and comprehensive curriculum.">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Minimal Top Bar -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-notice">
-        <span class="top-badge">New Batch</span>
-        <span>Cambridge IELTS Academic & General Batch starts Monday</span>
+  <div class="app-wrapper">
+    <!-- Left Vertical Sidebar Nav -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-logo">
+          <img src="assets/logo.png" alt="The English Academy Logo">
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-nav-item active" title="Dashboard">
+            <div class="nav-icon-box">
+              <i class="fa-solid fa-border-all"></i>
+            </div>
+          </a>
+          <a href="#courses" class="sidebar-nav-item" title="Courses">
+            <div class="nav-icon-box">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+          </a>
+          <a href="#calculator" class="sidebar-nav-item" title="Mock Tests & Calculator">
+            <div class="nav-icon-box">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+          </a>
+          <a href="#quiz" class="sidebar-nav-item" title="Diagnostic Quiz">
+            <div class="nav-icon-box">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+          </a>
+        </nav>
       </div>
-      <div class="top-contacts">
-        <a href="tel:+8801700000000"><i class="fa-solid fa-phone"></i> +880 1700-000000</a>
-        <a href="mailto:info@theenglishacademy.com"><i class="fa-solid fa-envelope"></i> info@theenglishacademy.com</a>
+
+      <div class="sidebar-bottom">
+        <button class="sidebar-bottom-icon" title="Information & Support" onclick="openModal('Support Inquiry')">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120" alt="Student Profile Avatar" class="sidebar-avatar">
       </div>
-    </div>
+    </aside>
+
+    <!-- Main Dashboard Application Shell -->
+    <main class="main-content">
+      <!-- Top Dashboard Header Bar -->
+      <header class="top-header">
+        <div class="brand-header-group">
+          <div class="brand-title">THE ENGLISH ACADEMY</div>
+          <div class="brand-subtitle">& IELTS PREP</div>
+        </div>
+
+        <div class="header-user-controls">
+          <!-- Class Progress Widget Card -->
+          <div class="progress-widget">
+            <div class="progress-header">
+              <span>Class Progress</span>
+              <span class="progress-pct">65%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="classProgressFill"></div>
+            </div>
+          </div>
+
+          <!-- Notification Bell -->
+          <button class="notification-btn" title="Notifications" onclick="alert('You have 2 upcoming mock test speaking evaluations scheduled!')">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-badge"></span>
+          </button>
+
+          <!-- User Profile Avatar -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120" alt="Student Profile" class="header-avatar">
+        </div>
+      </header>
+
+      <!-- Inner Content Container -->
+      <div class="dashboard-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Achieve Your Target
+                <span class="text-red">IELTS Band 7.5+</span>
+              </h1>
+              
+              <p class="hero-subtitle">
+                Master Reading, Writing, Listening & Speaking
+              </p>
+
+              <!-- 2x2 Feature Grid -->
+              <div class="hero-features-grid">
+                <div class="feature-item">
+                  <span class="check-circle"><i class="fa-solid fa-check"></i></span>
+                  <span>Expert British Council Certified Tutors</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-circle"><i class="fa-solid fa-check"></i></span>
+                  <span>Comprehensive IELTS Curriculum</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-circle"><i class="fa-solid fa-check"></i></span>
+                  <span>Mock Tests & Feedback</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-circle"><i class="fa-solid fa-check"></i></span>
+                  <span>Personalized Learning Plan</span>
+                </div>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="hero-cta-group">
+                <button class="btn-primary-red" onclick="openModal('Free Diagnostic Test')">
+                  BOOK FREE DIAGNOSTIC TEST <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <a href="#courses" class="btn-secondary-outline">
+                  Learn More
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Hero Image with Floating Glass Card -->
+            <div class="hero-visual-wrapper">
+              <div class="hero-img-box">
+                <img src="assets/hero.png" alt="Students studying together at The English Academy">
+              </div>
+
+              <!-- Floating Glass Overlay Card -->
+              <div class="floating-glass-card">
+                <div class="glass-icons-row">
+                  <button class="glass-icon-btn active" title="Listening Module" onclick="selectModule('Listening')">
+                    <i class="fa-solid fa-headphones"></i>
+                  </button>
+                  <button class="glass-icon-btn" title="Reading Module" onclick="selectModule('Reading')">
+                    <i class="fa-solid fa-book-open"></i>
+                  </button>
+                  <button class="glass-icon-btn" title="Writing Module" onclick="selectModule('Writing')">
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </button>
+                  <button class="glass-icon-btn" title="Speaking Module" onclick="selectModule('Speaking')">
+                    <i class="fa-solid fa-comments"></i>
+                  </button>
+                </div>
+                <div class="glass-card-title" id="moduleTitleDisplay">IELTS Band 7.5+</div>
+                <div class="glass-card-subtitle" id="moduleSubtitleDisplay">IELTS Academic | General Training Course Options</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Band Score Calculator Tool Section -->
+        <section class="tool-section" id="calculator">
+          <div class="section-title-wrap">
+            <span class="sub-tag">Interactive Calculator</span>
+            <h2 class="sec-heading">IELTS Score Calculator</h2>
+            <p class="sec-desc">Adjust module scores to compute overall score using official Cambridge rounding rules.</p>
+          </div>
+
+          <div class="calc-card-grid">
+            <div class="calc-inputs-col">
+              <div class="range-row">
+                <div class="range-header">
+                  <span><i class="fa-solid fa-headphones text-red"></i> Listening</span>
+                  <span class="range-val-badge" id="valListening">7.5</span>
+                </div>
+                <input type="range" class="range-slider" id="rangeListening" min="0" max="9" step="0.5" value="7.5">
+              </div>
+
+              <div class="range-row">
+                <div class="range-header">
+                  <span><i class="fa-solid fa-book-open text-red"></i> Reading</span>
+                  <span class="range-val-badge" id="valReading">7.0</span>
+                </div>
+                <input type="range" class="range-slider" id="rangeReading" min="0" max="9" step="0.5" value="7.0">
+              </div>
+
+              <div class="range-row">
+                <div class="range-header">
+                  <span><i class="fa-solid fa-pen-nib text-red"></i> Writing</span>
+                  <span class="range-val-badge" id="valWriting">6.5</span>
+                </div>
+                <input type="range" class="range-slider" id="rangeWriting" min="0" max="9" step="0.5" value="6.5">
+              </div>
+
+              <div class="range-row">
+                <div class="range-header">
+                  <span><i class="fa-solid fa-comments text-red"></i> Speaking</span>
+                  <span class="range-val-badge" id="valSpeaking">7.5</span>
+                </div>
+                <input type="range" class="range-slider" id="rangeSpeaking" min="0" max="9" step="0.5" value="7.5">
+              </div>
+            </div>
+
+            <div class="calc-result-box">
+              <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.7);">OVERALL BAND SCORE</span>
+              <div class="score-dial" id="overallScoreDisplay">7.0</div>
+              <div style="font-weight: 800; color: #f87171; font-size: 1.1rem; margin-bottom: 0.5rem;" id="bandInterpretation">Good User</div>
+              <p style="font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem;" id="bandAdvice">Eligible for UK, Canadian, & Australian Master's programs.</p>
+              <button class="btn-primary-red" style="padding: 0.65rem 1.5rem; font-size: 0.9rem;" onclick="openModal('Band 8.0 Plan')">Get Band 8.0 Plan</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2-Minute Diagnostic Quiz Tool Section -->
+        <section class="tool-section" id="quiz">
+          <div class="section-title-wrap">
+            <span class="sub-tag">Level Assessment</span>
+            <h2 class="sec-heading">2-Minute Diagnostic Quiz</h2>
+            <p class="sec-desc">Determine your current English level and get an instant course recommendation.</p>
+          </div>
+
+          <div class="quiz-wrapper">
+            <div class="quiz-progress-bar">
+              <div class="quiz-progress-fill" id="quizProgressFill"></div>
+            </div>
+
+            <div id="quizQuestionBox">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--red-primary); margin-bottom: 0.5rem;" id="quizStepText">Question 1 of 5</div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem;" id="quizQuestionTitle">What is your primary goal?</h3>
+              <div id="quizOptionsContainer"></div>
+            </div>
+
+            <div id="quizResultCard" style="display: none; text-align: center;">
+              <span style="display: inline-block; padding: 0.4rem 1.25rem; background: var(--red-light); color: var(--red-primary); font-weight: 800; border-radius: 99px; margin-bottom: 1rem;" id="quizResultBadge">Level: Intermediate</span>
+              <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">Recommended Program: <span id="quizRecommendedCourse" class="text-red">IELTS Academic Masterclass</span></h3>
+              <p style="color: var(--slate-muted); margin-bottom: 1.5rem;" id="quizResultDescription">Ready for our 2.5-month Academic batch!</p>
+              <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn-primary-red" onclick="openModal('Quiz Recommendation')">Enroll Now</button>
+                <button class="btn-secondary-outline" onclick="resetQuiz()">Retake Quiz</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="tool-section" id="courses">
+          <div class="section-title-wrap">
+            <span class="sub-tag">Targeted Programs</span>
+            <h2 class="sec-heading">Featured IELTS Courses</h2>
+            <p class="sec-desc">Comprehensive preparation tailored for university admissions and PR immigration.</p>
+          </div>
+
+          <div class="courses-grid-3">
+            <div class="course-card-item">
+              <span class="course-tag">Higher Education</span>
+              <h3 class="course-card-title">IELTS Academic</h3>
+              <p class="course-card-desc">Intensive 4-module training with 1-on-1 essay evaluations and mock test feedback.</p>
+              <ul class="course-list">
+                <li><i class="fa-solid fa-check"></i> 30 Interactive Live Classes</li>
+                <li><i class="fa-solid fa-check"></i> 15 Cambridge Mock Tests</li>
+                <li><i class="fa-solid fa-check"></i> 1-on-1 Speaking Interviews</li>
+              </ul>
+              <div class="course-footer">
+                <div class="course-price-val">৳18,500</div>
+                <button class="btn-primary-red" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;" onclick="openModal('IELTS Academic')">Enroll</button>
+              </div>
+            </div>
+
+            <div class="course-card-item">
+              <span class="course-tag">Immigration & PR</span>
+              <h3 class="course-card-title">IELTS General</h3>
+              <p class="course-card-desc">Tailored strategy for Canada PR (CLB 9+), UK Work, and Australia immigration requirements.</p>
+              <ul class="course-list">
+                <li><i class="fa-solid fa-check"></i> Formal & Informal Letter Drills</li>
+                <li><i class="fa-solid fa-check"></i> Speed Reading Hacks</li>
+                <li><i class="fa-solid fa-check"></i> Weekend & Evening Batches</li>
+              </ul>
+              <div class="course-footer">
+                <div class="course-price-val">৳20,000</div>
+                <button class="btn-primary-red" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;" onclick="openModal('IELTS General')">Enroll</button>
+              </div>
+            </div>
+
+            <div class="course-card-item">
+              <span class="course-tag">Fluency & Accent</span>
+              <h3 class="course-card-title">Executive Spoken</h3>
+              <p class="course-card-desc">Overcome hesitation, refine pronunciation, and build corporate presentation confidence.</p>
+              <ul class="course-list">
+                <li><i class="fa-solid fa-check"></i> British Accent Phonetics</li>
+                <li><i class="fa-solid fa-check"></i> Vocabulary Booster (1,500+ Words)</li>
+                <li><i class="fa-solid fa-check"></i> Public Speaking Practice</li>
+              </ul>
+              <div class="course-footer">
+                <div class="course-price-val">৳12,000</div>
+                <button class="btn-secondary-outline" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;" onclick="openModal('Spoken English')">Enroll</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Clean Footer -->
+        <footer class="footer-simple">
+          <p>&copy; 2026 The English Academy & IELTS Prep. All Rights Reserved.</p>
+        </footer>
+      </div>
+    </main>
   </div>
 
-  <!-- Minimal Sticky Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="brand">
-        <img src="assets/logo.png" alt="The English Academy Logo">
-        <span>The English Academy</span>
-      </a>
-
-      <ul class="nav-menu">
-        <li><a href="#courses" class="nav-link">Courses</a></li>
-        <li><a href="#calculator" class="nav-link">Band Calculator</a></li>
-        <li><a href="#quiz" class="nav-link">Diagnostic Quiz</a></li>
-        <li><a href="#schedule" class="nav-link">Schedule</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-      </ul>
-
-      <div>
-        <button class="btn btn-red btn-sm" onclick="openModal('Free Mock Test')">
-          Book Free Test
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Spacious Minimal Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-layout">
-        <div>
-          <div class="hero-pill">
-            <i class="fa-solid fa-shield-halved text-red"></i> Official Cambridge Test Partner
-          </div>
-          <h1 class="hero-title">
-            Achieve Target <span class="text-blue">IELTS Band 7.5+</span> On First Attempt
-          </h1>
-          <p class="hero-subtext">
-            Personalized 1-on-1 coaching, certified Cambridge instructors, and unlimited mock exams to guarantee your dream band score.
-          </p>
-          <div class="hero-cta">
-            <button class="btn btn-red" onclick="openModal('Free Mock Test')">
-              <i class="fa-solid fa-calendar-check"></i> Book Free Diagnostic Test
-            </button>
-            <a href="#calculator" class="btn btn-outline">
-              <i class="fa-solid fa-calculator"></i> Band Calculator
-            </a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-item"><i class="fa-solid fa-check-circle"></i> 1-on-1 Speaking Feedback</div>
-            <div class="trust-item"><i class="fa-solid fa-check-circle"></i> Cambridge 2026 Material</div>
-            <div class="trust-item"><i class="fa-solid fa-check-circle"></i> Unlimited Retakes</div>
-          </div>
-        </div>
-
-        <div>
-          <div class="hero-image-box">
-            <img src="assets/hero.png" alt="Students learning English at The English Academy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clean Key Metrics -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div>
-          <div class="stat-num">12,500+</div>
-          <div class="stat-lbl">IELTS Graduates</div>
-        </div>
-        <div>
-          <div class="stat-num text-red">98.4%</div>
-          <div class="stat-lbl">Target Success Rate</div>
-        </div>
-        <div>
-          <div class="stat-num text-blue">8.5</div>
-          <div class="stat-lbl">Highest Student Score</div>
-        </div>
-        <div>
-          <div class="stat-num">15+</div>
-          <div class="stat-lbl">Cambridge Master Trainers</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IELTS Band Calculator -->
-  <section class="section section-subtle" id="calculator">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Interactive Tool</span>
-        <h2 class="title-sec">IELTS Band Calculator</h2>
-        <p class="desc-sec">Adjust module scores below to calculate overall band score using official Cambridge rounding rules.</p>
-      </div>
-
-      <div class="calc-box">
-        <div class="calc-inputs">
-          <div class="input-row">
-            <div class="input-header">
-              <span><i class="fa-solid fa-headphones text-blue"></i> Listening</span>
-              <span class="input-val" id="valListening">7.5</span>
-            </div>
-            <input type="range" class="range-input" id="rangeListening" min="0" max="9" step="0.5" value="7.5">
-          </div>
-
-          <div class="input-row">
-            <div class="input-header">
-              <span><i class="fa-solid fa-book-open text-blue"></i> Reading</span>
-              <span class="input-val" id="valReading">7.0</span>
-            </div>
-            <input type="range" class="range-input" id="rangeReading" min="0" max="9" step="0.5" value="7.0">
-          </div>
-
-          <div class="input-row">
-            <div class="input-header">
-              <span><i class="fa-solid fa-pen-nib text-red"></i> Writing</span>
-              <span class="input-val" id="valWriting">6.5</span>
-            </div>
-            <input type="range" class="range-input" id="rangeWriting" min="0" max="9" step="0.5" value="6.5">
-          </div>
-
-          <div class="input-row">
-            <div class="input-header">
-              <span><i class="fa-solid fa-comments text-red"></i> Speaking</span>
-              <span class="input-val" id="valSpeaking">7.5</span>
-            </div>
-            <input type="range" class="range-input" id="rangeSpeaking" min="0" max="9" step="0.5" value="7.5">
-          </div>
-        </div>
-
-        <div class="calc-result">
-          <span style="font-size: 0.85rem; letter-spacing: 1px; uppercase; color: rgba(255,255,255,0.7);">OVERALL BAND SCORE</span>
-          <div class="dial-score" id="overallScoreDisplay">7.0</div>
-          <div style="font-weight: 700; color: #38bdf8; font-size: 1.1rem; margin-bottom: 0.5rem;" id="bandInterpretation">Good User</div>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem;" id="bandAdvice">Eligible for UK, Canadian, & Australian Master's programs.</p>
-          <button class="btn btn-red btn-sm" onclick="openModal('Band 8.0 Plan')">Get Band 8.0 Plan</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Diagnostic Level Quiz -->
-  <section class="section" id="quiz">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Assessment</span>
-        <h2 class="title-sec">2-Minute Level Quiz</h2>
-        <p class="desc-sec">Find your current English level and get an instant course recommendation.</p>
-      </div>
-
-      <div class="quiz-box">
-        <div class="quiz-progress">
-          <div class="quiz-fill" id="quizProgressFill"></div>
-        </div>
-
-        <div id="quizQuestionBox">
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.5rem;" id="quizStepText">Question 1 of 5</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="quizQuestionTitle">What is your primary goal?</h3>
-          <div id="quizOptionsContainer"></div>
-        </div>
-
-        <div id="quizResultCard" style="display: none; text-align: center;">
-          <span style="display: inline-block; padding: 0.4rem 1.25rem; background: var(--accent-blue-light); color: var(--accent-blue); font-weight: 800; border-radius: 99px; margin-bottom: 1rem;" id="quizResultBadge">Level: Intermediate</span>
-          <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;">Recommended Program: <span id="quizRecommendedCourse" class="text-blue">IELTS Academic Masterclass</span></h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem;" id="quizResultDescription">Ready for our 2.5-month Academic batch!</p>
-          <div style="display: flex; gap: 1rem; justify-content: center;">
-            <button class="btn btn-blue" onclick="openModal('Quiz Recommendation')">Enroll Now</button>
-            <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Streamlined Courses Section -->
-  <section class="section section-subtle" id="courses">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Programs</span>
-        <h2 class="title-sec">Targeted Courses</h2>
-        <p class="desc-sec">Focused preparation designed for university admission, immigration, and professional fluency.</p>
-      </div>
-
-      <div class="course-grid">
-        <!-- Academic IELTS -->
-        <div class="course-card">
-          <span class="course-badge">Higher Education</span>
-          <h3 class="course-title">IELTS Academic</h3>
-          <p class="course-desc">Intensive 4-module prep with 1-on-1 essay evaluation and mock test feedback.</p>
-          <ul class="course-specs">
-            <li><i class="fa-solid fa-check"></i> 30 Interactive Live Classes</li>
-            <li><i class="fa-solid fa-check"></i> 15 Cambridge Mock Tests</li>
-            <li><i class="fa-solid fa-check"></i> 1-on-1 Speaking Interviews</li>
-          </ul>
-          <div class="course-bottom">
-            <div class="course-price">৳18,500</div>
-            <button class="btn btn-blue btn-sm" onclick="openModal('IELTS Academic')">Enroll</button>
-          </div>
-        </div>
-
-        <!-- General Training -->
-        <div class="course-card">
-          <span class="course-badge" style="background: var(--accent-red-light); color: var(--accent-red);">Immigration & PR</span>
-          <h3 class="course-title">IELTS General</h3>
-          <p class="course-desc">Tailored for Canada PR, UK Work, and Australia immigration requirements (CLB 9 strategy).</p>
-          <ul class="course-specs">
-            <li><i class="fa-solid fa-check"></i> Formal & Informal Letter Drills</li>
-            <li><i class="fa-solid fa-check"></i> Reading Speed Hacks</li>
-            <li><i class="fa-solid fa-check"></i> Weekend & Evening Slots</li>
-          </ul>
-          <div class="course-bottom">
-            <div class="course-price">৳20,000</div>
-            <button class="btn btn-red btn-sm" onclick="openModal('IELTS General')">Enroll</button>
-          </div>
-        </div>
-
-        <!-- Executive Spoken -->
-        <div class="course-card">
-          <span class="course-badge">Fluency & Accent</span>
-          <h3 class="course-title">Spoken & Public Speaking</h3>
-          <p class="course-desc">Overcome hesitation, refine pronunciation, and build confidence for public speaking.</p>
-          <ul class="course-specs">
-            <li><i class="fa-solid fa-check"></i> British Accent Phonetics</li>
-            <li><i class="fa-solid fa-check"></i> Vocabulary Booster (1,500+ Words)</li>
-            <li><i class="fa-solid fa-check"></i> Corporate Presentation Practice</li>
-          </ul>
-          <div class="course-bottom">
-            <div class="course-price">৳12,000</div>
-            <button class="btn btn-outline btn-sm" onclick="openModal('Spoken English')">Enroll</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clean Student Results -->
-  <section class="section" id="success">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Success Stories</span>
-        <h2 class="title-sec">Recent Band Results</h2>
-        <p class="desc-sec">Verified scorecards from our top performing alumni.</p>
-      </div>
-
-      <div class="showcase-grid">
-        <div class="card-student">
-          <div class="student-meta">
-            <div>
-              <h4 style="font-size: 1.1rem;">Sarah Jenkins</h4>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">University of Oxford</span>
-            </div>
-            <span class="score-tag">Band 8.5</span>
-          </div>
-          <p class="student-quote">"1-on-1 speaking interviews fixed subtle grammar mistakes. Score jumped from 6.5 to 8.5!"</p>
-        </div>
-
-        <div class="card-student">
-          <div class="student-meta">
-            <div>
-              <h4 style="font-size: 1.1rem;">Tanvir Ahmed</h4>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">Canada PR (CLB 10)</span>
-            </div>
-            <span class="score-tag" style="background: var(--accent-blue);">Band 8.0</span>
-          </div>
-          <p class="student-quote">"Needed 8 in Listening and 7 in Writing for PR. The structured essay templates delivered."</p>
-        </div>
-
-        <div class="card-student">
-          <div class="student-meta">
-            <div>
-              <h4 style="font-size: 1.1rem;">Maria Garcia</h4>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">University of Toronto</span>
-            </div>
-            <span class="score-tag">Band 7.5</span>
-          </div>
-          <p class="student-quote">"Unlimited mock tests made the actual exam stress-free. Managed time perfectly."</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Minimal Batch Schedule -->
-  <section class="section section-subtle" id="schedule">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Timings</span>
-        <h2 class="title-sec">Upcoming Batches</h2>
-        <p class="desc-sec">Choose between Zoom live batches or campus branches.</p>
-      </div>
-
-      <div class="schedule-card">
-        <table class="table-clean">
-          <thead>
-            <tr>
-              <th>Program</th>
-              <th>Mode</th>
-              <th>Start Date</th>
-              <th>Schedule</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>IELTS Academic Batch A</strong></td>
-              <td>Zoom Live</td>
-              <td>Sept 15, 2026</td>
-              <td>Sun, Tue, Thu (7:00 PM)</td>
-              <td><button class="btn btn-red btn-sm" onclick="openModal('Academic Batch A')">Book Seat</button></td>
-            </tr>
-            <tr>
-              <td><strong>IELTS General PR Special</strong></td>
-              <td>Dhanmondi Branch</td>
-              <td>Sept 18, 2026</td>
-              <td>Fri & Sat (4:00 PM)</td>
-              <td><button class="btn btn-blue btn-sm" onclick="openModal('General PR Batch')">Book Seat</button></td>
-            </tr>
-            <tr>
-              <td><strong>Executive Spoken English</strong></td>
-              <td>Zoom Live</td>
-              <td>Sept 20, 2026</td>
-              <td>Mon & Wed (8:30 PM)</td>
-              <td><button class="btn btn-outline btn-sm" onclick="openModal('Spoken Batch')">Book Seat</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="header-center">
-        <span class="tag-sub">Questions</span>
-        <h2 class="title-sec">Frequently Asked Questions</h2>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-card active">
-          <button class="faq-btn">
-            <span>How does the free diagnostic mock test work?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-body">
-            <p>Our free diagnostic test evaluates your Reading, Writing, and Listening levels, followed by a 10-minute 1-on-1 speaking evaluation with a senior trainer.</p>
-          </div>
-        </div>
-
-        <div class="faq-card">
-          <button class="faq-btn">
-            <span>What if I do not achieve my target band score?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-body">
-            <p>We offer a 100% score guarantee. If you attend 85%+ classes and complete all mock tests, you can re-attend our next regular batch for free.</p>
-          </div>
-        </div>
-
-        <div class="faq-card">
-          <button class="faq-btn">
-            <span>Are class recordings available?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-body">
-            <p>Yes. Every online live class is recorded and uploaded to your personal student portal within 2 hours with lifetime access.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Booking Modal -->
-  <div class="modal-bg" id="bookingModal">
-    <div class="modal-body">
-      <button style="position: absolute; top: 1.25rem; right: 1.25rem; font-size: 1.25rem;" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
 
       <div id="modalFormContainer">
-        <h3 style="font-size: 1.4rem; margin-bottom: 0.35rem;" id="modalHeaderTitle">Book Free Diagnostic Test</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Reserve your slot with a Cambridge certified trainer.</p>
+        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.35rem;" id="modalHeaderTitle">Book Free Diagnostic Test</h3>
+        <p style="color: var(--slate-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Reserve your 1-on-1 assessment slot with a certified trainer.</p>
 
         <form onsubmit="handleFormSubmit(event)">
-          <div class="form-field">
-            <label class="field-label">Full Name *</label>
-            <input type="text" class="field-input" placeholder="e.g. Tanvir Hossain" required id="formName">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-control" placeholder="e.g. Tanvir Hossain" required id="formName">
           </div>
 
-          <div class="form-field">
-            <label class="field-label">WhatsApp Phone Number *</label>
-            <input type="tel" class="field-input" placeholder="+880 1712-345678" required id="formPhone">
+          <div class="form-group">
+            <label class="form-label">WhatsApp Phone Number *</label>
+            <input type="tel" class="form-control" placeholder="+880 1712-345678" required id="formPhone">
           </div>
 
-          <div class="form-field">
-            <label class="field-label">Target Band</label>
-            <select class="field-select" id="formTargetBand">
+          <div class="form-group">
+            <label class="form-label">Target Band</label>
+            <select class="form-control" id="formTargetBand">
               <option value="7.0">Band 7.0</option>
-              <option value="7.5" selected>Band 7.5</option>
+              <option value="7.5" selected>Band 7.5+</option>
               <option value="8.0">Band 8.0+</option>
             </select>
           </div>
 
-          <button type="submit" class="btn btn-red" style="width: 100%; margin-top: 1rem;">
+          <button type="submit" class="btn-primary-red" style="width: 100%; margin-top: 1rem;">
             Confirm Booking
           </button>
         </form>
       </div>
 
       <div id="modalSuccessScreen" style="display: none; text-align: center; padding: 1.5rem 0;">
-        <i class="fa-solid fa-circle-check text-blue" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Booking Confirmed!</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-          Thank you <strong id="successStudentName" class="text-blue">Student</strong>. Our senior trainer will contact you on WhatsApp shortly.
+        <i class="fa-solid fa-circle-check text-red" style="font-size: 3.5rem; margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Booking Confirmed!</h3>
+        <p style="color: var(--slate-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Thank you <strong id="successStudentName" class="text-red">Student</strong>. Our senior trainer will contact you on WhatsApp shortly.
         </p>
-        <button class="btn btn-outline" onclick="closeModal()">Close</button>
+        <button class="btn-secondary-outline" onclick="closeModal()">Close</button>
       </div>
     </div>
   </div>
-
-  <!-- Minimal Clean Footer -->
-  <footer class="footer-clean">
-    <div class="container">
-      <div class="footer-row">
-        <div>
-          <div class="brand" style="margin-bottom: 1rem; color: #fff;">
-            <span>The English Academy</span>
-          </div>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
-            Premier IELTS & English language training institute. Certified Cambridge master trainers.
-          </p>
-        </div>
-
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 1rem;">Navigation</h4>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
-            <a href="#courses">Courses</a>
-            <a href="#calculator">Band Calculator</a>
-            <a href="#quiz">Diagnostic Quiz</a>
-            <a href="#schedule">Schedule</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 1rem;">Branches</h4>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
-            <span>Dhanmondi, Dhaka</span>
-            <span>Uttara, Dhaka</span>
-            <span>Online Live Zoom</span>
-          </div>
-        </div>
-
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 1rem;">Contact</h4>
-          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
-            <span>+880 1700-000000</span>
-            <span>info@theenglishacademy.com</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom-clean">
-        <p>&copy; 2026 The English Academy. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
