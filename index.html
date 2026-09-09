@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>The English Academy & IELTS Prep | Target Band 7.5+</title>
   <meta name="description" content="Reach Band 7.5+ with Cambridge certified master trainers. Expert British Council certified tutors, 1-on-1 speaking practice, and comprehensive curriculum.">
   
@@ -12,7 +12,7 @@
 <body>
 
   <div class="app-wrapper">
-    <!-- Left Vertical Sidebar Nav -->
+    <!-- Navigation Sidebar (Desktop Vertical / Mobile Fixed Bottom Bar) -->
     <aside class="sidebar">
       <div class="sidebar-top">
         <div class="sidebar-logo">
@@ -24,21 +24,25 @@
             <div class="nav-icon-box">
               <i class="fa-solid fa-border-all"></i>
             </div>
+            <span class="nav-label">Home</span>
           </a>
           <a href="#courses" class="sidebar-nav-item" title="Courses">
             <div class="nav-icon-box">
               <i class="fa-solid fa-book-open"></i>
             </div>
+            <span class="nav-label">Courses</span>
           </a>
           <a href="#calculator" class="sidebar-nav-item" title="Mock Tests & Calculator">
             <div class="nav-icon-box">
               <i class="fa-solid fa-file-signature"></i>
             </div>
+            <span class="nav-label">Calculator</span>
           </a>
           <a href="#quiz" class="sidebar-nav-item" title="Diagnostic Quiz">
             <div class="nav-icon-box">
               <i class="fa-solid fa-user-gear"></i>
             </div>
+            <span class="nav-label">Quiz</span>
           </a>
         </nav>
       </div>
@@ -234,7 +238,7 @@
               <span style="display: inline-block; padding: 0.4rem 1.25rem; background: var(--red-light); color: var(--red-primary); font-weight: 800; border-radius: 99px; margin-bottom: 1rem;" id="quizResultBadge">Level: Intermediate</span>
               <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">Recommended Program: <span id="quizRecommendedCourse" class="text-red">IELTS Academic Masterclass</span></h3>
               <p style="color: var(--slate-muted); margin-bottom: 1.5rem;" id="quizResultDescription">Ready for our 2.5-month Academic batch!</p>
-              <div style="display: flex; gap: 1rem; justify-content: center;">
+              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <button class="btn-primary-red" onclick="openModal('Quiz Recommendation')">Enroll Now</button>
                 <button class="btn-secondary-outline" onclick="resetQuiz()">Retake Quiz</button>
               </div>

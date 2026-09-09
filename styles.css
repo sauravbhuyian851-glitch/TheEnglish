@@ -1,6 +1,6 @@
 /* ==========================================================================
-   THE ENGLISH ACADEMY & IELTS PREP - TARGET UI DESIGN SYSTEM
-   Exact replica of target dashboard design layout
+   THE ENGLISH ACADEMY & IELTS PREP - TARGET UI & MOBILE RESPONSIVE SYSTEM
+   Exact replica of target dashboard design layout with Native Mobile Navigation
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
@@ -48,7 +48,7 @@
   --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Reset & Global */
+/* Reset & Global Setup */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -58,6 +58,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -80,6 +81,7 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  touch-action: manipulation;
 }
 
 /* App Outer Shell Layout */
@@ -89,7 +91,7 @@ button {
   width: 100%;
 }
 
-/* Left Vertical Sidebar */
+/* Left Vertical Sidebar (Desktop) */
 .sidebar {
   width: 84px;
   background-color: var(--bg-sidebar);
@@ -103,6 +105,7 @@ button {
   top: 0;
   height: 100vh;
   z-index: 90;
+  flex-shrink: 0;
 }
 
 .sidebar-top {
@@ -160,6 +163,12 @@ button {
   align-items: center;
   justify-content: center;
   transition: all var(--transition-smooth);
+}
+
+.sidebar-nav-item .nav-label {
+  display: none;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .sidebar-nav-item:hover .nav-icon-box {
@@ -231,6 +240,7 @@ button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* Top Dashboard Header */
@@ -240,6 +250,7 @@ button {
   justify-content: space-between;
   padding: 1.75rem 3rem 1rem 3rem;
   background: var(--bg-shell);
+  gap: 1.5rem;
 }
 
 .brand-header-group {
@@ -379,7 +390,7 @@ button {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   color: var(--slate-title);
   line-height: 1.12;
@@ -393,14 +404,14 @@ button {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   color: var(--slate-dark);
   margin-bottom: 2.25rem;
   line-height: 1.4;
 }
 
-/* Feature Checklist 2x2 Grid */
+/* Feature Checklist Grid */
 .hero-features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -453,6 +464,7 @@ button {
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-red-btn);
   transition: all var(--transition-smooth);
+  min-height: 48px;
 }
 
 .btn-primary-red:hover {
@@ -474,6 +486,7 @@ button {
   border: 1.5px solid var(--slate-title);
   border-radius: var(--radius-full);
   transition: all var(--transition-smooth);
+  min-height: 48px;
 }
 
 .btn-secondary-outline:hover {
@@ -508,7 +521,7 @@ button {
   bottom: -24px;
   right: -10px;
   width: 330px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1.5px solid rgba(255, 255, 255, 0.7);
@@ -569,7 +582,7 @@ button {
   line-height: 1.3;
 }
 
-/* Tool Sections Container (Calculator, Quiz, Courses, etc.) */
+/* Tool Sections Container */
 .tool-section {
   padding: 4rem 0 2rem 0;
   border-top: 1px solid var(--border-subtle);
@@ -593,7 +606,7 @@ button {
 
 .sec-heading {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
   font-weight: 800;
   color: var(--slate-title);
   margin-bottom: 0.75rem;
@@ -625,7 +638,7 @@ button {
 .range-row {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .range-header {
@@ -650,11 +663,12 @@ button {
 
 .range-slider {
   width: 100%;
-  height: 6px;
+  height: 8px;
   background: #cbd5e1;
   border-radius: var(--radius-full);
   outline: none;
   accent-color: var(--red-primary);
+  cursor: pointer;
 }
 
 .calc-result-box {
@@ -725,12 +739,12 @@ button {
   justify-content: space-between;
   margin-bottom: 0.75rem;
   transition: all var(--transition-smooth);
+  min-height: 52px;
 }
 
-.quiz-option-btn:hover {
+.quiz-option-btn:hover, .quiz-option-btn:active {
   border-color: var(--red-primary);
   background: var(--red-light);
-  transform: translateX(4px);
 }
 
 /* Course Grid */
@@ -830,7 +844,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1.25rem;
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-smooth);
@@ -844,9 +858,11 @@ button {
 .modal-content-card {
   background: #ffffff;
   width: 100%;
-  max-width: 480px;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: var(--radius-lg);
-  padding: 2.5rem;
+  padding: 2.25rem;
   position: relative;
   box-shadow: var(--shadow-card);
 }
@@ -855,12 +871,19 @@ button {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--slate-muted);
   transition: color var(--transition-smooth);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .modal-close-btn:hover {
+  background: var(--bg-subtle);
   color: var(--slate-title);
 }
 
@@ -878,7 +901,7 @@ button {
 
 .form-control {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1rem;
   border: 1.5px solid var(--border-light);
   border-radius: var(--radius-sm);
   font-family: inherit;
@@ -900,7 +923,11 @@ button {
   text-align: center;
 }
 
-/* Responsive Rules */
+/* ==========================================================================
+   ADVANCED RESPONSIVE MEDIA QUERIES (TABLETS & MOBILE PHONES)
+   ========================================================================== */
+
+/* Tablets & Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -908,68 +935,209 @@ button {
   }
   .calc-card-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .courses-grid-3 {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-img-box {
+    height: 360px;
   }
   .floating-glass-card {
     position: relative;
-    bottom: auto;
-    right: auto;
+    bottom: 0;
+    right: 0;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 }
 
+/* Mobile Phones (max-width: 768px) */
 @media (max-width: 768px) {
   .app-wrapper {
     flex-direction: column;
   }
+
+  /* Transform Sidebar into Native Mobile Bottom App Navigation Bar */
   .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: auto;
+    height: 66px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-right: none;
+    border-top: 1px solid var(--border-light);
     flex-direction: row;
-    padding: 0.75rem 1.5rem;
-    position: relative;
+    justify-content: space-around;
+    padding: 0 0.5rem;
+    box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.08);
+    z-index: 150;
   }
+
   .sidebar-top {
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 0;
+    width: 100%;
+    justify-content: space-around;
   }
+
+  .sidebar-logo {
+    display: none; /* Hide logo in bottom nav bar */
+  }
+
   .sidebar-nav {
     flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    gap: 0;
+  }
+
+  .sidebar-nav-item {
+    height: 100%;
+    flex-direction: column;
     justify-content: center;
+    gap: 2px;
+    font-size: 1.2rem;
   }
+
+  .sidebar-nav-item .nav-icon-box {
+    width: 38px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+  }
+
+  .sidebar-nav-item .nav-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+
   .sidebar-nav-item.active::before {
-    top: auto;
-    bottom: 0;
-    left: 10px;
-    right: 10px;
-    width: auto;
+    top: 0;
+    bottom: auto;
+    left: 15%;
+    right: 15%;
+    width: 70%;
     height: 3px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0 0 4px 4px;
   }
+
+  .sidebar-bottom {
+    display: none; /* Hide avatar/info from bottom bar for clean layout */
+  }
+
+  /* Main Canvas Shell Adjustments */
   .main-content {
-    margin: 0.25rem;
-    border-radius: 16px;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
+
+  /* Header Optimization on Mobile */
   .top-header {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.25rem 0.75rem 1.25rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .header-user-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .progress-widget {
+    flex: 1;
+    min-width: 0;
+  }
+
   .dashboard-container {
-    padding: 1rem 1.5rem 2rem 1.5rem;
+    padding: 1rem 1.25rem 80px 1.25rem; /* Safe padding at bottom for mobile nav bar */
   }
-  .hero-title {
-    font-size: 2.4rem;
+
+  .hero-section {
+    padding: 1.5rem 0 2rem 0;
   }
+
   .hero-features-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
+
   .hero-cta-group {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .btn-primary-red, .btn-secondary-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-img-box {
+    height: 260px;
+    border-radius: var(--radius-md);
+  }
+
+  .floating-glass-card {
+    padding: 1.1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .glass-icons-row {
+    justify-content: space-around;
+  }
+
+  .glass-icon-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .calc-card-grid, .quiz-wrapper {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .score-dial {
+    width: 90px;
+    height: 90px;
+    font-size: 2.35rem;
+  }
+
+  .tool-section {
+    padding: 2.5rem 0 1.5rem 0;
+  }
+}
+
+/* Extra Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .sec-heading {
+    font-size: 1.5rem;
+  }
+
+  .modal-content-card {
+    padding: 1.5rem;
   }
 }
